@@ -1,0 +1,18 @@
+<h2>Usuarios</h2>
+
+<label for="nombre">Nombre del usuario:</label>
+<input type="text" name="nombre" id="nombre" [(ngModel)]="nombre">
+
+<label for="email">Email del usuario:</label>
+<input type="text" name="email" id="email"  [(ngModel)]="email">
+
+<button (click)="crear()" [disabled]="!nombre.trim().length || !email.trim().length">Crear usuario</button>
+
+<ul>
+@for (u of usuarios; track u) {
+   <li>
+    {{ u.id }} - {{ u.nombre }} ({{ u.email }})
+    <button (click)="borrar(u.id)">Borrar</button>
+  </li>
+}
+</ul>
